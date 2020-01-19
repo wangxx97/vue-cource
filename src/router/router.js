@@ -5,12 +5,18 @@ export default [
 		path: '/',
 		alias: '/home+_page', // 别名
 		name: 'home',
-		component: Home
+		component: Home,
+		props: route => ({
+			food: route.query.food
+		})
 	},
 	{
 		path: '/about',
 		name: 'about',
-		component: () => import('@/views/About.vue')
+		component: () => import('@/views/About.vue'),
+		props: {
+			food: 'banana'
+		}
 	},
 	{
 		path: '/argu/:name',
