@@ -50,4 +50,8 @@ export default [
 			name: to => '/'
 		}
 	},
+	{
+		path: '*',
+		component: () => import('@/views/error_404.vue')
+	}
 ]
