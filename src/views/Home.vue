@@ -21,6 +21,9 @@
                 default: 'apple'
             }
         },
+        beforeRouteEnter(to, from, next) {
+						next()
+        },
         methods: {
             handleClick(type) {
                 if (type === 'back') this.$router.back()
