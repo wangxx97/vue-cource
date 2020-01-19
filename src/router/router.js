@@ -14,10 +14,12 @@ export default [
 	},
 	{
 		path: '/argu/:name',
+		name: 'argu',
 		component: () => import('@/views/argu.vue')
 	},
 	{
 		path: '/parent',
+		name: 'parent',
 		component: () => import('@/views/parent.vue'),
 		children: [
 			{

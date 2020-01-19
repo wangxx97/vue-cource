@@ -1,8 +1,10 @@
 <template>
 	<div class="home">
 
-		<button @click="handleClick">返回上一页面</button>
-		<button @click="handleClick('push')">返回上一页面</button>
+		<button @click="handleClick('back')">返回上一页面</button>
+		<button @click="handleClick('push')">跳转到parent</button>
+		<button @click="handleClick('replace')">替换到parent</button>
+
 
 	</div>
 </template>
@@ -16,8 +18,24 @@
             HelloWorld
         },
         methods: {
-            handleClick() {
-                this.$router.back()
+            handleClick(type) {
+                if (type === 'back') this.$router.back()
+                // else if (type === 'push')this.$router.push('/parent')
+                else if (type === 'push') {
+                    this.$router.push({
+                        name: 'argu',
+												params: {
+                            name: 'lison'
+												}
+												// query:{
+                        //     name:'lison'
+												// }
+                    })
+                } else if (type === 'replace'){
+                    this.$router.replace({
+												name: 'parent'
+										})
+								}
             }
         }
     }
