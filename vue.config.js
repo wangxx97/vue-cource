@@ -9,7 +9,7 @@ module.exports = {
   publicPath: BASE_URL,
   chainWebpack: config => {
     config.resolve.alias
-      .set('@', resolve('src'))
+      .set('@', resolve('src')) /*@代表src*/
       .set('_c', resolve('src/components'))
   },
   // 打包时不生成.map文件
