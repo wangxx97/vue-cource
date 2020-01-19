@@ -22,7 +22,15 @@
             }
         },
         beforeRouteEnter(to, from, next) {
-						next()
+            //this
+            next(vm => {
+                console.log(vm)
+            })
+        },
+        beforeRouteLeave(to, from, next) {
+            const leave = confirm('您确定要离开吗？')
+            if (leave) next()
+            else next(false)
         },
         methods: {
             handleClick(type) {

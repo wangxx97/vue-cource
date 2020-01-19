@@ -1,18 +1,16 @@
 <template>
 	<div id="app">
-		<div class="nav">
+		<div id="nav">
 			<router-link :to="{name:'home'}">Home</router-link>
 			|
 			<router-link :to="{name:'about'}">About</router-link>
 		</div>
+		<transition-group :name="routerTransition">
+			<router-view key="default"/>
+			<router-view key="email" name="email"/>
+			<router-view key="tel" name="tel"/>
+		</transition-group>
 
-		<router-view></router-view>
-		<router-view name="email"></router-view>
-		<router-view name="tel"></router-view>
-
-
-		<img alt="Vue logo" src="assets/img/logo.png">
-		<HelloWorld msg="Welcome to Your Vue.js App"/>
 	</div>
 </template>
 
@@ -20,14 +18,50 @@
     import HelloWorld from './components/HelloWorld.vue'
 
     export default {
-        name: 'app',
-        components: {
-            HelloWorld
+				data () {
+                return {
+                    routerTransition: ''
+                }
+            },
+
+        watch: {
+            '$route'(to) {
+                to.query && to.query.transitionName && (this.routerTransition = to.query.transitionName)
+            }
         }
     }
 </script>
 
 <style xml:lang="less">
+
+	<!--
+	页面的动态切换
+
+	-->
+	.router-enter {
+		opacity: 0;
+	}
+
+	.router-enter-active {
+		transition: opacity 1s ease;
+	}
+
+	.router-enter-to {
+		opacity: 1;
+	}
+
+	.router-leave {
+		opacity: 1;
+	}
+
+	.router-leave-active {
+		transition: opacity 1s ease;
+	}
+
+	.router-leave-to {
+		opacity: 0;
+	}
+
 	#app {
 		font-family: 'Avenir', Helvetica, Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;

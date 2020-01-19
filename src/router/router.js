@@ -26,6 +26,9 @@ export default [
 		component: () => import('@/views/About.vue'),
 		props: {
 			food: 'banana'
+		},
+		meta:{
+			title:'关于'
 		}
 	},
 	{
