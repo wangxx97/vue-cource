@@ -8,6 +8,7 @@
 		<transition-group :name="routerTransition">
 			<router-view key="default"/>
 			<router-view key="email" name="email"/>
+			<!-- 命名视图 -->
 			<router-view key="tel" name="tel"/>
 		</transition-group>
 
@@ -18,11 +19,11 @@
     import HelloWorld from './components/HelloWorld.vue'
 
     export default {
-				data () {
-                return {
-                    routerTransition: ''
-                }
-            },
+        data() {
+            return {
+                routerTransition: ''
+            }
+        },
 
         watch: {
             '$route'(to) {
@@ -38,6 +39,7 @@
 	页面的动态切换
 
 	-->
+
 	.router-enter {
 		opacity: 0;
 	}

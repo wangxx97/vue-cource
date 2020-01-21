@@ -27,8 +27,8 @@ export default [
 		props: {
 			food: 'banana'
 		},
-		meta:{
-			title:'关于'
+		meta: {
+			title: '关于'
 		}
 	},
 	{
@@ -62,6 +62,10 @@ export default [
 		redirect: {
 			name: to => '/'
 		}
+	},
+	{
+		path: '/store',
+		component: () => import('@/views/store.vue')
 	},
 	{
 		path: '*',
