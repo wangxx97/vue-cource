@@ -2,15 +2,23 @@ const state = {
 	userName: 'wangxx_gengww',
 	// rules: {}
 }
+const getters = {
+	firstLetter: (state) => {
+		return state.userName.substr(0, 1)
+	}
+}
+
 const mutations = {
-  //
+	//
 }
 const actions = {
-  //
+	//
 }
 
 export default {
-  state,
-  mutations,
-  actions
+	// namespaced: true,
+	getters,
+	state,
+	mutations,
+	actions
 }
