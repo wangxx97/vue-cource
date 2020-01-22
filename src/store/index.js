@@ -7,8 +7,10 @@ import user from './module/user'
 
 // import config from './config'
 
+// 加载vuex
 Vue.use(Vuex)
 
+// 创建vuex实例
 export default new Vuex.Store({
   state,
   mutations,

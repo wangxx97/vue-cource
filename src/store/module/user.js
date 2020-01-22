@@ -1,5 +1,6 @@
 const state = {
-  //
+	userName: 'wangxx_gengww',
+	// rules: {}
 }
 const mutations = {
   //

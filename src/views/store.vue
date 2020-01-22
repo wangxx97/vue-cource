@@ -3,8 +3,10 @@
 		<a-input @input="handleInput"/>
 		<!--		<a-input v-model="inputValue"/>-->
 		<!--		<a-input :value="inputValue" @input="handleInput"/>-->
-<!--		<p>{{ inputValue }}</p>-->
+		<!--		<p>{{ inputValue }}</p>-->
 		<a-show :content="inputValue"/>
+		<p>appName:{{appName}}</p>
+		<p>userName:{{userName}}</p>
 	</div>
 </template>
 
@@ -24,6 +26,15 @@
         components: {
             AInput,
             AShow
+        },
+        // 计算属性
+        computed: {
+            appName() {
+                return this.$store.state.appName
+            },
+            userName () {
+                return this.$store.state.user.userName
+            }
         },
         methods: {
             handleInput(val) {

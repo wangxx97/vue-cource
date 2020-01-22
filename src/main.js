@@ -8,6 +8,7 @@ import Bus from './lib/bus'
 Vue.config.productionTip = false
 Vue.prototype.$bus = Bus
 
+// vue根组件
 new Vue({
 	router,
 	store,
