@@ -9,8 +9,14 @@ const getters = {
 }
 
 const mutations = {
-	//
+	SET_USER_NAME(state, params) {
+		state.userName = params
+	},
+	// SET_RULES(state, rules) {
+	// 	state.rules = rules
+	// }
 }
+
 const actions = {
 	//
 }
