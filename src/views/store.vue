@@ -2,10 +2,10 @@
 <!--@click 绑定点击事件-->
 <template>
 	<div>
-		<a-input @input="handleInput"/>
-		<!--		<a-input v-model="inputValue"/>-->
+		<!--		<a-input @input="handleInput"/>-->
+		<a-input v-model="stateValue"/>
 		<!--		<a-input :value="inputValue" @input="handleInput"/>-->
-		<p>{{ inputValue }}->lastLetter is{{inputValueLastLetter}}</p>
+		<p>{{ stateValue }}->lastLetter is{{inputValueLastLetter}}</p>
 		<!--		<a-show :content="inputValue"/>-->
 		<p>appName:{{appName}}, appNameWithVersion : {{ appNameWithVersion }} </p>
 		<p>userName:{{userName}},firstLetter is : {{firstLetter}}</p>
@@ -22,7 +22,7 @@
     // import AInput from "_c/AInput.vue"
     import AInput from "../components/AInput"
     import AShow from "../components/AShow"
-     import {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
+    import {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
     // import {createNamespacedHelpers} from 'vuex'
     // const {mapState} = createNamespacedHelpers('user')
     // const {mapGetters} = createNamespacedHelpers('user')
@@ -47,8 +47,16 @@
                 userName: state => state.user.userName,
                 // userName: state => state.user.userName,
                 appVersion: state => state.appVersion,
-                todoList: state => state.user.todo ? state.user.todo.todoList : []
+                todoList: state => state.user.todo ? state.user.todo.todoList : [],
             }),
+            stateValue: {
+                get() {
+                    return this.$store.state.stateValue
+                },
+                set(value) {
+                    this.SET_STATE_VALUE(value)
+                }
+            },
             ...mapGetters([
                 'appNameWithVersion',
                 'firstLetter'
@@ -83,7 +91,7 @@
             ...mapMutations([
                 'SET_USER_NAME',
                 'SET_APP_NAME',
-                // 'SET_STATE_VALUE'
+                'SET_STATE_VALUE'
             ]),
             ...mapActions([
                 'updateAppName'
@@ -103,7 +111,7 @@
                 // this.$store.commit('SET_APP_VERSION')
             },
             changeUserName() {
-                // this.$store.state.user.userName = 'haha' 错误的方法
+                // this.$store.state.user.userName = 'haha' //错误的方法
                 this.SET_USER_NAME('www-ggg')
                 // this.$store.dispatch('updateAppName', '123')
             },
@@ -117,6 +125,9 @@
                     }
                 })
             },
+            handleStateValueChange(val) {
+                this.SET_STATE_VALUE(val)
+            }
         }
     }
 </script>
