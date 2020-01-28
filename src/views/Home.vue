@@ -4,7 +4,8 @@
 		<button @click="handleClick('back')">返回上一页面</button>
 		<button @click="handleClick('push')">跳转到parent</button>
 		<button @click="handleClick('replace')">替换到parent</button>
-		<button @click="getInfo">请求数据</button>  <!--// :style="{ background: bgColor }"-->
+		<button @click="getInfo" :style="{ background: bgColor }">请求数据</button>
+		<img :src="url">
 
 	</div>
 </template>
@@ -19,6 +20,12 @@
         name: 'Home',
         components: {
             HelloWorld
+        },
+        data () {
+            return {
+                url: '',
+                bgColor: ''
+            }
         },
         props: {
             food: {
@@ -62,9 +69,9 @@
                 //     console.log(res)
 
                     getUserInfo({ userId: 21 }).then(res => {
-                        console.log('res: ', res)
-                    //     this.url = res.img
-                    //     this.bgColor = res.color
+                        console.log('res: ', res.data)
+                        this.url = res.data.img
+                        this.bgColor = res.data.color
                 })
             },
         }
