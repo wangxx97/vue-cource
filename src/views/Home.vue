@@ -4,11 +4,16 @@
 		<button @click="handleClick('back')">返回上一页面</button>
 		<button @click="handleClick('push')">跳转到parent</button>
 		<button @click="handleClick('replace')">替换到parent</button>
+		<button @click="getInfo">请求数据</button>  <!--// :style="{ background: bgColor }"-->
+
 	</div>
 </template>
 
 <script>
     import HelloWorld from "../components/HelloWorld"
+    // import axios from 'axios'
+    import {getUserInfo} from '@/api/user'
+    // import {mapState, mapActions} from 'vuex'
 
     export default {
         name: 'Home',
@@ -51,7 +56,17 @@
                         name: 'parent'
                     })
                 }
-            }
+            },
+            getInfo() {
+                // axios.post('/getUserInfo', {userId: 21}).then(res => {
+                //     console.log(res)
+
+                    getUserInfo({ userId: 21 }).then(res => {
+                        console.log('res: ', res)
+                    //     this.url = res.img
+                    //     this.bgColor = res.color
+                })
+            },
         }
     }
 </script>
