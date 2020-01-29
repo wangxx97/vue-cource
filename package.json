@@ -10,7 +10,8 @@
   "dependencies": {
     "core-js": "^3.4.4",
     "vue": "^2.6.10",
-		"vue-router": "latest"
+		"vue-router": "latest",
+		"countup": "^1.8.2"
 	},
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
@@ -20,6 +21,8 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+		"less": "^3.0.4",
+		"less-loader": "^4.1.0",
     "mockjs": "^1.1.0",
     "vue-template-compiler": "^2.6.10"
   },
