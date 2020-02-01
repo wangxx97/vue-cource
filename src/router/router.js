@@ -43,6 +43,11 @@ export default [
 		component: () => import('@/views/count-to.vue')
 	},
 	{
+		path: '/menu_page',
+		name: 'menu_page',
+		component: () => import('@/views/menu-page.vue')
+	},
+	{
 		path: '/render_page',
 		name: 'render_page',
 		meta: {
