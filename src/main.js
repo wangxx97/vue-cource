@@ -6,8 +6,7 @@ import store from './store' /* 自动找store下的index.js */
 import Bus from './lib/bus'
 import CountTo from './components/count-to'
 
-if (process.env.NODE_ENV !== 'production') require('./mock')
-
+// if (process.env.NODE_ENV !== 'production') require('./mock')
 
 Vue.config.productionTip = false
 Vue.prototype.$bus = Bus
