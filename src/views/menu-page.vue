@@ -22,8 +22,10 @@
 	</div>
 </template>
 <script>
+    // 引入
     import menuComponents from '../components/menu'
     import ReSubmenu from './re-submenu.vue'
+
     const {AMenu, AMenuItem, ASubmenu} = menuComponents
 
     export default {
