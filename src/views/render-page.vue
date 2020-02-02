@@ -1,51 +1,38 @@
 <template>
-	<div>
-		<!--		<ul @click="handleClick">-->
-		<!--			<li  @click.stop="handleClick" v-for="(item, index) in list" :key="`list_item_${index}`">{{item.name}}</li>-->
-		<!--		</ul>-->
-		<list :list="list" :render="renderFunc" :style="{color: 'red'}">
-			<count-to slot="aa" slot-scope="count" :end-val="count.number"></count-to>
-		</list>
-	</div>
+  <div>
+    <list :list="list" :style="{color: 'red'}">
+      <count-to slot="aa" slot-scope="count" :end-val="count.number"></count-to>
+    </list>
+  </div>
 </template>
-
-
 <script>
-    import List from '../components/list'
-    import CountTo from '../components/count-to'
-
-    export default {
-        data() {
-            return {
-                list: [
-                    // {name: 'wxx'},
-                    // {name: 'gwh'},
-                    {number: 100},
-                    {number: 45}
-                ]
-            }
-        },
-        components: {
-            List,
-            CountTo
-        },
-        methods: {
-            renderFunc(h, number) {
-                return (
-                    <CountTo
-                nativeOn-click = {this.handleClick}
-                on-on-animation-end = {this.handleEnd}
-                endVal = {number}
-                style = {{color: 'pink'}}></CountTo>
-            )
-            },
-        },
-        handleClick(event) {
-            // console.log(event)
-        },
-        handleEnd() {
-            // console.log('end!')l
-        }
+import List from '_c/list'
+import CountTo from '_c/count-to'
+export default {
+  data () {
+    return {
+      list: [
+        { number: 100 },
+        { number: 45 }
+      ]
     }
-
+  },
+  components: {
+    List,
+    CountTo
+  },
+  methods: {
+    renderFunc (h, number) {
+      return (
+        <CountTo nativeOn-click={this.handleClick} on-on-animation-end={this.handleEnd} endVal={number} style={{color: 'pink'}}></CountTo>
+      )
+    },
+    handleClick (event) {
+      // console.log(event)
+    },
+    handleEnd () {
+      // console.log('end!')
+    }
+  }
+}
 </script>

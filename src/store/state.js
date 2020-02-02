@@ -1,6 +1,5 @@
 const state = {
-	// 在这里定义的值可以在任何组件中使用
-	appName: 'wangxixin',
-	stateValue: 'abc'
+  appName: 'admin',
+  stateValue: 'abc'
 }
 export default state

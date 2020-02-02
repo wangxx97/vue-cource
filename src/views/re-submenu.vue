@@ -8,7 +8,7 @@
   </a-submenu>
 </template>
 <script>
-import menuComponents from '../components/menu'
+import menuComponents from '_c/menu'
 const { AMenuItem, ASubmenu } = menuComponents
 export default {
   name: 'ReSubmenu',

@@ -11,15 +11,12 @@ module.exports = {
 		config.resolve.alias
 			.set('@', resolve('src')) /*@代表src*/
 			.set('_c', resolve('src/components'))
-			.rule('vue')
-			.use('iview')
-			.loader('iview-loader')
-			.options({prefix: false})
+
 	},
 	// 打包时不生成.map文件
 	productionSourceMap: false,
 	devServer: {
-		proxy: 'http://localhost:8080'
+		// proxy: 'http://localhost:8080'
 		// proxy: 'http://localhost:3000'
 
 	}
