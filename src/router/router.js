@@ -1,19 +1,33 @@
 import Home from '@/views/Home.vue'  /*@代表src*/
+import Layout from '@/views/layout.vue'
 
 export default [
 	{
 		path: '/',
 		alias: '/home+_page', // 别名
 		name: 'home',
-		component: Home,
-		props: route => ({
-			food: route.query.food
-		}),
-		beforeEnter: (to, from, next) => {
-			// if (from.name === 'about') alert('这是从about页来的')
-			// else alert('这不是从about页面来的')
-			next()
-		}
+		component: Layout,
+		// meta: {
+		// 	title: '首页'
+		// },
+		children: [
+			{
+				path: 'home_index',
+				name: 'home_index',
+				meta: {
+					title: '首页'
+				},
+				component: Home
+			}
+		]
+		// props: route => ({
+		// 	food: route.query.food
+		// }),
+		// beforeEnter: (to, from, next) => {
+		// 	// if (from.name === 'about') alert('这是从about页来的')
+		// 	// else alert('这不是从about页面来的')
+		// 	next()
+		// }
 	},
 	{
 		path: '/login',
@@ -43,7 +57,7 @@ export default [
 		component: () => import('@/views/count-to.vue')
 	},
 	{
-		path: '/menu_page',
+		path: '/menu_ page',
 		name: 'menu_page',
 		component: () => import('@/views/menu-page.vue')
 	},

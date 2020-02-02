@@ -1,16 +1,16 @@
 <template>
 	<div id="app">
-<!--		<div id="nav">-->
-<!--			<router-link :to="{name:'home'}">Home</router-link>-->
-<!--			|-->
-<!--			<router-link :to="{name:'about'}">About</router-link>-->
-<!--		</div>-->
-		<transition-group :name="routerTransition">
-			<router-view key="default"/>
-			<router-view key="email" name="email"/>
-			<!-- 命名视图 -->
-			<router-view key="tel" name="tel"/>
-		</transition-group>
+		<!--		<div id="nav">-->
+		<!--			<router-link :to="{name:'home'}">Home</router-link>-->
+		<!--			|-->
+		<!--			<router-link :to="{name:'about'}">About</router-link>-->
+		<!--		</div>-->
+		<!--		<transition-group :name="routerTransition">-->
+		<router-view key="default"/>
+		<router-view key="email" name="email"/>
+		<!-- 命名视图 -->
+		<router-view key="tel" name="tel"/>
+		<!--		</transition-group>-->
 
 	</div>
 </template>
@@ -24,7 +24,6 @@
                 routerTransition: ''
             }
         },
-
         watch: {
             '$route'(to) {
                 to.query && to.query.transitionName && (this.routerTransition = to.query.transitionName)
@@ -39,6 +38,14 @@
 	页面的动态切换
 
 	-->
+
+	html, body {
+		height: 100%;
+	}
+
+	body {
+		margin: 0;
+	}
 
 	.router-enter {
 		opacity: 0;
@@ -71,6 +78,7 @@
 		/*text-align: center;*/
 		color: #2c3e50;
 		margin-top: 60px;
+		height: 100%;
 	}
 
 

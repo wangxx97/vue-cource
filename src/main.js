@@ -5,11 +5,16 @@ import router from './router'
 import store from './store' /* 自动找store下的index.js */
 import Bus from './lib/bus'
 import CountTo from './components/count-to'
+import iview from 'iview'
+import 'iview/dist/styles/iview.css'
+import {Button, Table} from 'iview'
 
+vue.component('Button', Button)
 // if (process.env.NODE_ENV !== 'production') require('./mock')
 
 Vue.config.productionTip = false
 Vue.prototype.$bus = Bus
+Vue.use(iview)
 
 const handleClick = event => {
 	console.log(event)
