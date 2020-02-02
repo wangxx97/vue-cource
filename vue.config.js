@@ -6,18 +6,34 @@ const BASE_URL = process.env.NODE_ENV === 'production' ? '/iview-admin' : '/'
 
 module.exports = {
 	lintOnSave: false,
-	publicPath: BASE_URL,
+	baseUrl: BASE_URL,
 	chainWebpack: config => {
 		config.resolve.alias
-			.set('@', resolve('src')) /*@代表src*/
+			.set('@', resolve('src'))
 			.set('_c', resolve('src/components'))
-
 	},
 	// 打包时不生成.map文件
 	productionSourceMap: false,
 	devServer: {
-		// proxy: 'http://localhost:8080'
 		// proxy: 'http://localhost:3000'
-
 	}
 }
+
+// module.exports = {
+// 	lintOnSave: false,
+// 	publicPath: BASE_URL,
+// 	chainWebpack: config => {
+// 		config.resolve.alias
+// 			.set('@', resolve('src')) /*@代表src*/
+// 			.set('_c', resolve('src/components'))
+//
+// 	},
+// 	// 打包时不生成.map文件
+// 	productionSourceMap: false,
+// 	devServer: {
+// 		// proxy: 'http://localhost:8080'
+// 		// proxy: 'http://localhost:3000'
+//
+// 	}
+// }
+
