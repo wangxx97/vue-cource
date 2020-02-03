@@ -1,17 +1,16 @@
 import Cookies from 'js-cookie'
 import clonedeep from 'clonedeep'
 
-
 export const setTitle = (title) => {
-  window.document.title = title || 'admin'
+	window.document.title = title || 'admin'
 }
 
 export const setToken = (token, tokenName = 'token') => {
-  Cookies.set(tokenName, token)
+	Cookies.set(tokenName, token)
 }
 
 export const getToken = (tokenName = 'token') => {
-  return Cookies.get(tokenName)
+	return Cookies.get(tokenName)
 }
 
 export const putFileInFolder = (folderList, fileList) => {
@@ -51,4 +50,26 @@ export const transferFolderToTree = folderList => {
 		return arr
 	}
 	return handle(0)
+}
+
+export const expandSpecifiedFolder = (folderTree, id) => {
+	return folderTree.map(item => {
+		if (item.type === 'folder') {
+			if (item.id === id) {
+				item.expand = true
+			} else {
+				if (item.children && item.children.length) {
+					item.children = expandSpecifiedFolder(item.children, id)
+					if (item.children.some(child => {
+						return child.expand === true
+					})) {
+						item.expand = true
+					} else {
+						item.expand = false
+					}
+				}
+			}
+		}
+		return item
+	})
 }
