@@ -11,14 +11,14 @@ Mock.mock(/\/getFileList/, 'get', getFileList)
 Mock.mock(/\/getFolderList/, 'get', getFolderList)
 
 Mock.setup({
-	timeout: 0
+  timeout: 0
 })
 
 Random.extend({
-	fruit () {
-		const fruit = ['apple', 'peach', 'lemon']
-		return this.pick(fruit)
-	}
+  fruit () {
+    const fruit = ['apple', 'peach', 'lemon']
+    return this.pick(fruit)
+  }
 })
 
 export default Mock
