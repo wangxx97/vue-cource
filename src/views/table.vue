@@ -7,8 +7,8 @@
 
 <script>
 import { getTableData } from '@/api/data'
-import EditTable from '_c/edit-table'
-import EditTableMul from '_c/edit-table-mul'
+import EditTable from '../components/edit-table'
+import EditTableMul from '../components/edit-table-mul'
 export default {
   components: {
     EditTable,

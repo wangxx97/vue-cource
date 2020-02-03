@@ -7,13 +7,10 @@ import iview from 'iview'
 import 'iview/dist/styles/iview.css'
 import '@/assets/font/iconfont.js'
 import '@/assets/font/iconfont.css'
-// import IconFont from '_c/icon-font'
-// import IconSvg from '_c/icon-svg'
 import IconFont from './components/icon-font'
 import IconSvg from './components/icon-svg'
-//是否必须登录
 if (process.env.NODE_ENV !== 'production') require('./mock')
-
+// 是否必须登录
 Vue.config.productionTip = false
 Vue.prototype.$bus = Bus
 Vue.component('icon-font', IconFont)
@@ -25,7 +22,7 @@ const handleClick = event => {
 	event.stopPropagation()
 }
 
-let list = [{name: 'wangxixin'}, {name: 'wxx'}]
+let list = [{name: 'lison'}, {name: 'lili'}]
 const getLiEleArr = (h) => {
 	return list.map((item, index) => h('li', {
 		on: {
