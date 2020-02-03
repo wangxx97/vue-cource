@@ -5,6 +5,8 @@ import store from './store'
 import Bus from './lib/bus'
 import iview from 'iview'
 import 'iview/dist/styles/iview.css'
+
+//是否必须登录
 if (process.env.NODE_ENV !== 'production') require('./mock')
 
 Vue.config.productionTip = false

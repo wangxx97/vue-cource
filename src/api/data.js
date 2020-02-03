@@ -31,7 +31,7 @@ export const getFilesList = () => {
 	})
 }
 
-export const getFile = ({ key, type }) => {
+export const getFile = ({key, type}) => {
 	return axios.request({
 		url: 'get_file',
 		data: {
@@ -49,5 +49,12 @@ export const deleteFile = key => {
 			key
 		},
 		method: 'delete'
+	})
+}
+export const sentFormData = ({url, data}) => {
+	return axios.request({
+		url,
+		data,
+		method: 'post'
 	})
 }
